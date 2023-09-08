@@ -9,8 +9,13 @@ import SwiftUI
 
 struct HomeStatisticView: View {
     
-    @EnvironmentObject private var viewModel: HomeViewModel
+    @StateObject private var viewModel: HomeViewModel
     @Binding var showPortoilo: Bool
+    
+    public init(viewModel: HomeViewModel, showPortoilo: Binding<Bool>) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+        self._showPortoilo = showPortoilo
+    }
     
     var body: some View {
         HStack {
@@ -26,6 +31,6 @@ struct HomeStatisticView: View {
 
 struct HomeStatisticView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeStatisticView(showPortoilo: .constant(false)).environmentObject(dev.homeViewModel)
+        HomeStatisticView(viewModel: dev.homeViewModel, showPortoilo: .constant(false))
     }
 }

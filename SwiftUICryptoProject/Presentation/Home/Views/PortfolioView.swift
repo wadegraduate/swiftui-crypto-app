@@ -9,10 +9,16 @@ import SwiftUI
 
 struct PortfolioView: View {
     
-    @EnvironmentObject private var viewModel: HomeViewModel
+    @StateObject private var viewModel: HomeViewModel
     @State private var selectedCoin: CoinModel? = nil
     @State private var quantityText: String = ""
     @State private var showCheckmark: Bool = false
+    @Binding var showPortfolioView: Bool // Add this
+    
+    public init(viewModel: HomeViewModel, showPortfolioView: Binding<Bool>) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+        self._showPortfolioView = showPortfolioView
+    }
     
     var body: some View {
         NavigationView {
@@ -29,7 +35,12 @@ struct PortfolioView: View {
             .navigationTitle("Edit Portfoilo")
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    XMarkButton()
+                    Button(action: {
+                        showPortfolioView.toggle()
+                    }, label: {
+                        Image(systemName: "xmark")
+                            .font(.headline)
+                    })
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -47,8 +58,7 @@ struct PortfolioView: View {
 
 struct PortfolioView_Previews: PreviewProvider {
     static var previews: some View {
-        PortfolioView()
-            .environmentObject(dev.homeViewModel)
+        PortfolioView(viewModel: dev.homeViewModel, showPortfolioView: .constant(false))
     }
 }
 

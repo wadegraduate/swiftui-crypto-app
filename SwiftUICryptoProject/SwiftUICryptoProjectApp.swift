@@ -27,7 +27,6 @@ struct SwiftUICryptoProjectApp: App {
                         .navigationBarHidden(true)
                 }
                 .navigationViewStyle(StackNavigationViewStyle())
-                .environmentObject(viewModel)
                 
                 
                 ZStack {

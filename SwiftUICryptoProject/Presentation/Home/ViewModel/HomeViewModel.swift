@@ -9,7 +9,6 @@ import Combine
 
 class HomeViewModel: ObservableObject {
 
-    
     @Published var statistic: [StatisticModel] = []
     @Published var marketData: MarketDataModel?
     @Published var allCoins: [CoinModel] = []

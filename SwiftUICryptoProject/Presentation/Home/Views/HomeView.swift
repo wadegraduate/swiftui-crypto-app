@@ -9,25 +9,27 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject private var viewModel: HomeViewModel
+    @StateObject private var viewModel: HomeViewModel
     @State private var showPortfolio: Bool = false
     @State private var showPortfolioView: Bool = false // new sheet
     
     @State private var selectedCoin: CoinModel? = nil
     @State private var showDetailView: Bool = false
     
+    public init() {
+        self._viewModel = StateObject(
+            wrappedValue: HomeViewModel(homeUseCase: HomeUseCase())
+        )
+    }
+    
     var body: some View {
         ZStack {
             Color.theme.background
                 .ignoresSafeArea()
-                .sheet(isPresented: $showPortfolioView) {
-                    PortfolioView()
-                        .environmentObject(viewModel)
-                }
             
             VStack {
                 homeHeader
-                HomeStatisticView(showPortoilo: $showPortfolio)
+                HomeStatisticView(viewModel: viewModel, showPortoilo: $showPortfolio)
                 SearchBarView(searchText: $viewModel.searchText)
                 columnTitle
                 
@@ -50,12 +52,15 @@ struct HomeView: View {
                 Spacer(minLength: 0)
             }
         }
+        .sheet(isPresented: $showPortfolioView) {
+            PortfolioView(viewModel: viewModel, showPortfolioView: $showPortfolioView)
+        }
         .background(
             NavigationLink(
                 destination: DetailLoadingView(coin: $selectedCoin),
                 isActive: $showDetailView,
                 label: { EmptyView() })
-        
+            
         )
         .onAppear {
             viewModel.requestData()
@@ -69,14 +74,13 @@ struct HomeView_Previews: PreviewProvider {
             HomeView()
                 .navigationBarHidden(true)
         }
-        .environmentObject(dev.homeViewModel)
     }
 }
 
 extension HomeView {
     private var homeHeader: some View {
         HStack {
-            let _ = print("Debug: ", showPortfolio)
+            //let _ = print("Debug: ", showPortfolio)
             CircleButtonView(iconName: showPortfolio ? "plus" : "info")
                 .animation(.none)
                 .onTapGesture {
@@ -164,10 +168,10 @@ extension HomeView {
             }
             .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
             .onTapGesture {
-                    withAnimation(.default) {
-                        viewModel.sortOption = viewModel.sortOption == .price ? .priceReversed : .price
-                    }
+                withAnimation(.default) {
+                    viewModel.sortOption = viewModel.sortOption == .price ? .priceReversed : .price
                 }
+            }
             
             Button {
                 withAnimation(.linear(duration: 0.5)) {
@@ -177,7 +181,7 @@ extension HomeView {
                 Image(systemName: "goforward")
             }
             .rotationEffect(Angle(degrees: viewModel.isLoading ? 360: 0), anchor: .center)
-
+            
         }
         .font(.caption)
         .foregroundColor(Color.theme.secondaryText)
