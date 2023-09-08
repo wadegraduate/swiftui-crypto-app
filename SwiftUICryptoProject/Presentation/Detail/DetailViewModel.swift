@@ -13,21 +13,20 @@ class DetailViewModel: ObservableObject {
     @Published var overviewStatistics: [StatisticModel] = []
     @Published var additionalStatistics: [StatisticModel] = []
     @Published var coinDescription: String? = nil
-    @Published var websiteURL: String? = nil
-    @Published var redditURL: String? = nil
-    
+    @Published var coinDetails: CoinDetailModel? = nil
     @Published var coin: CoinModel
-    private let coinDetailService: CoinDetailDataService
+    
+    private let coinDetailUseCase: CoinDetailUseCaseProtcol
     private var cancellables = Set<AnyCancellable>()
     
-    init(coin: CoinModel) {
+    init(coin: CoinModel, coinDetailUseCase: CoinDetailUseCaseProtcol = CoinDetailUseCase()) {
+        self.coinDetailUseCase = coinDetailUseCase
         self.coin = coin
-        self.coinDetailService = CoinDetailDataService(coin: coin)
         self.addSubscribers()
     }
     
     private func addSubscribers() {
-        coinDetailService.$coinDetails
+        $coinDetails
             .combineLatest($coin)
             .map(mapDataToStatistics)
             .sink { [weak self] returnedArrays in
@@ -36,11 +35,9 @@ class DetailViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
-        coinDetailService.$coinDetails
+        $coinDetails
             .sink { [weak self ] details in
                 self?.coinDescription = details?.readableDescription
-                self?.websiteURL = details?.links?.homepage?.first
-                self?.redditURL = details?.links?.subredditURL
             }
             .store(in: &cancellables)
     }
@@ -89,5 +86,22 @@ class DetailViewModel: ObservableObject {
         
         let additionalArray: [StatisticModel] = [highStat,lowStat, priceChangeStat, marketCapChangeStat, blockStat, hasingStat]
         return additionalArray
+    }
+}
+
+
+extension DetailViewModel {
+    
+    func fetchCoinDetail() {
+        coinDetailUseCase.getCoinsDetail(coinID: coin.id)
+            .sink(result: { [weak self] result in
+                switch result {
+                case .success(let response):
+                    self?.coinDetails = response
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            })
+            .store(in: &cancellables)
     }
 }

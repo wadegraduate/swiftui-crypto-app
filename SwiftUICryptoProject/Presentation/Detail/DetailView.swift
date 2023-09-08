@@ -35,9 +35,6 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                Text("")
-                    .frame(height: 150)
-                
                 overviewTitle
                 Divider()
                 descriptionSection
@@ -47,6 +44,9 @@ struct DetailView: View {
                 additionalGrid
             }
             .padding()
+        }
+        .onAppear {
+            viewModel.fetchCoinDetail()
         }
         .navigationTitle(viewModel.coin.name)
         .toolbar {

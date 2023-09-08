@@ -80,7 +80,6 @@ struct HomeView_Previews: PreviewProvider {
 extension HomeView {
     private var homeHeader: some View {
         HStack {
-            //let _ = print("Debug: ", showPortfolio)
             CircleButtonView(iconName: showPortfolio ? "plus" : "info")
                 .animation(.none)
                 .onTapGesture {
@@ -111,7 +110,7 @@ extension HomeView {
     
     private var allCoinList: some View {
         List {
-            ForEach(viewModel.allCoins) { coin in
+            ForEach(viewModel.filterCoins) { coin in
                 CoinRowView(coin: coin, showHoldingColumn: false)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
                     .onTapGesture {

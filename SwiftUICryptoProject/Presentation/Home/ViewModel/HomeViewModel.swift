@@ -11,6 +11,7 @@ class HomeViewModel: ObservableObject {
 
     @Published var statistic: [StatisticModel] = []
     @Published var marketData: MarketDataModel?
+    @Published var filterCoins: [CoinModel] = []
     @Published var allCoins: [CoinModel] = []
     @Published var portfolioCoins: [CoinModel] = []
     @Published var searchText: String = ""
@@ -37,7 +38,7 @@ class HomeViewModel: ObservableObject {
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .map(filterAndSortCoin)
             .sink { [weak self] coins in
-                self?.allCoins = coins
+                self?.filterCoins = coins
             }
             .store(in: &cancellables)
         

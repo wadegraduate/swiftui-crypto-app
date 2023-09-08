@@ -97,7 +97,7 @@ import Foundation
  */
 
 
-struct CoinDetailModel: Codable {
+struct CoinDetailModel: Codable, HTTPJsonReply {
     let id, symbol, name: String?
     let blockTimeInMinutes: Int?
     let hashingAlgorithm: String?
