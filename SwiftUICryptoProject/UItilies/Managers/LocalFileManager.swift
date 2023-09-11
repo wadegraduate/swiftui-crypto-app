@@ -14,29 +14,31 @@ class LocalFileManager {
     
     private init() {}
     
-    func saveImage(image: UIImage, imageName: String, folderName: String) {
+    func saveImageData(imageData: ImageData, imageName: String, folderName: String) {
         // create folder
         createFolderIfNeeded(folderName: folderName)
         
         //get path for image
-        guard
-            let data = image.pngData(),
-            let url = getURLForImage(imageName: imageName, folderName: folderName) else { return }
+        guard let url = getURLForImage(imageName: imageName, folderName: folderName) else { return }
         
         // save image to path
         do {
-            try data.write(to: url)
+            try imageData.write(to: url)
         } catch let error {
             print("Error saving image. \(imageName). \(error)")
         }
     }
     
-    func getImage(imageName: String, folderName: String) -> UIImage? {
+    func getImageData(imageName: String, folderName: String) -> ImageData? {
         guard let url = getURLForImage(imageName: imageName, folderName: folderName),
               FileManager.default.fileExists(atPath: url.path) else {
             return nil
         }
-        return UIImage(contentsOfFile: url.path)
+        do {
+            return try Data(contentsOf: url)
+        } catch {
+            return nil
+        }
     }
     
     private func createFolderIfNeeded(folderName: String) {
@@ -59,5 +61,5 @@ class LocalFileManager {
         guard let folderURL = getURLForFolder(folderName: folderName) else { return nil }
         return folderURL.appendingPathComponent(imageName + ".png", conformingTo: .image)
     }
-    
 }
+

@@ -1,12 +1,11 @@
 //
-//  CoinDetailDataService.swift
+//  CoinDetailRequest.swift
 //  SwiftUICryptoProject
 //
-//  Created by Wadealanchan on 3/9/2023.
+//  Created by Wadealanchan on 8/9/2023.
 //
 
 import Foundation
-import Combine
 
 struct CoinDetailRequest: HTTPRequestable {
     typealias ParamT = HTTPEmptyParam
@@ -23,17 +22,3 @@ struct CoinDetailRequest: HTTPRequestable {
         self.coinID = coinID
     }
 }
-
-protocol CoinDetailDataNetworkServiceProtocol {
-    func requestCoinDetailData(coinID: String) -> AnyPublisher<CoinDetailModel, HTTPError>
-}
-
-class CoinDetailDataNetworkService: CoinDetailDataNetworkServiceProtocol {
-    
-    func requestCoinDetailData(coinID: String) -> AnyPublisher<CoinDetailModel, HTTPError> {
-        let request = CoinDetailRequest(coinID: coinID).toJsonRequest()
-        return request.start()
-    }
-}
-
-

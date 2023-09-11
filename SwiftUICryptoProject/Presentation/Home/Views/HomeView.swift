@@ -9,18 +9,12 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @StateObject private var viewModel: HomeViewModel
+    @ObservedObject var viewModel: HomeViewModel
     @State private var showPortfolio: Bool = false
     @State private var showPortfolioView: Bool = false // new sheet
     
     @State private var selectedCoin: CoinModel? = nil
     @State private var showDetailView: Bool = false
-    
-    public init() {
-        self._viewModel = StateObject(
-            wrappedValue: HomeViewModel(homeUseCase: HomeUseCase())
-        )
-    }
     
     var body: some View {
         ZStack {
@@ -71,7 +65,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            HomeView()
+            HomeView(viewModel: HomeFactory.makeHomeViewModel())
                 .navigationBarHidden(true)
         }
     }

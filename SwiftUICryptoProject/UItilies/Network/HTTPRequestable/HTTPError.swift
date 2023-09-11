@@ -12,11 +12,13 @@ public struct HTTPError: Error {
 
 extension HTTPError {
     public enum Code {
-        case weakError
+        case unknown
         case invaildURL
         case invalidParam
         case unsupported
         case noResponse
         case invalidResponse
+        case missingStatus
+        case missingData
     }
 }

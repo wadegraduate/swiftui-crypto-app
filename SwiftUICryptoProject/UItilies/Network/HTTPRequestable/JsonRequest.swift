@@ -27,19 +27,20 @@ public class JsonRequest<RequestT: HTTPRequestable> {
         
         return URLSession.shared
             .dataTaskPublisher(for: createURLRequest(url: url))
-                .tryMap { output in
-                    // throw an error if response is nil
-                    guard output.response is HTTPURLResponse else {
-                        throw HTTPError(code: .noResponse)
-                    }
-                    return output.data
+            .tryMap() { element -> Data in
+                guard let httpResponse = element.response as? HTTPURLResponse,
+                      httpResponse.statusCode == 200 else {
+                    throw HTTPError(code: .invaildURL)
                 }
-                .decode(type: RequestT.ReplyT.self, decoder: JSONDecoder())
-                .mapError { error in
-                    // return error if json decoding fails
-                    HTTPError(code: .invalidResponse)
-                }
-                .receive(on: DispatchQueue.main)
+                print(httpResponse.statusCode)
+                return element.data
+            }
+            .decode(type: RequestT.ReplyT.self, decoder: JSONDecoder())
+            .mapError { error in
+                // return error if json decoding fails
+                HTTPError(code: .invalidResponse)
+            }
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     
@@ -53,7 +54,7 @@ public class JsonRequest<RequestT: HTTPRequestable> {
             })
             urlRequest.allHTTPHeaderFields = customHeaders
         }
-        //urlRequest.httpBody = body
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         return urlRequest
     }
 }

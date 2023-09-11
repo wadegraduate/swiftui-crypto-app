@@ -11,17 +11,21 @@ import Combine
 protocol HomeUseCaseProtocol {
     func getCoinsInfo() -> AnyPublisher<[CoinModel], HTTPError>
     func getMarketDataInfo() -> AnyPublisher<MarketDataModel?, HTTPError>
+    func getSavedEntities() -> AnyPublisher<[PortfolioEntity], Never>
 }
 
 class HomeUseCase: HomeUseCaseProtocol {
     
     private let coinDataNetworkService: CoinDataNetworkServiceProtocol
     private let marketDataNetworkService: MarketDataNetworkServiceProtocol
+    private let portfolioDataRepository: PortfolioLocalDataRepositoryProtocol
     
     init(coinDataNetworkService: CoinDataNetworkServiceProtocol = CoinDataNetworkService(),
-         marketDataNetworkService: MarketDataNetworkServiceProtocol = MarketDataNetworkService()) {
+         marketDataNetworkService: MarketDataNetworkServiceProtocol = MarketDataNetworkService(),
+         portfolioDataRepository: PortfolioLocalDataRepositoryProtocol = PortfolioLocalDataRepository()) {
         self.coinDataNetworkService = coinDataNetworkService
         self.marketDataNetworkService = marketDataNetworkService
+        self.portfolioDataRepository = portfolioDataRepository
     }
     
     func getCoinsInfo() -> AnyPublisher<[CoinModel], HTTPError> {
@@ -33,4 +37,9 @@ class HomeUseCase: HomeUseCaseProtocol {
             .map( {$0.data})
             .eraseToAnyPublisher()
     }
+    
+    func getSavedEntities() -> AnyPublisher<[PortfolioEntity], Never> {
+        return portfolioDataRepository.savedEntitiesPublisher.eraseToAnyPublisher()
+    }
+    
 }

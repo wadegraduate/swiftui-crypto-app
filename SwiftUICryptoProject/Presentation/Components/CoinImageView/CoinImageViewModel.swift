@@ -6,31 +6,30 @@
 //
 
 import Foundation
-import SwiftUI
 import Combine
 
 class CoinImageViewModel: ObservableObject {
     
-    @Published var image: UIImage? = nil
     @Published var isLoading: Bool = false
+    @Published var imageData: ImageData? = nil
     
     private let coin: CoinModel
-    private let dataService: CoinImageService
     private var cancellables = Set<AnyCancellable>()
+    private let coinImageUseCase: CoinImageUseCaseProtocol
     
     init(coin: CoinModel) {
         self.coin = coin
-        self.dataService = CoinImageService(coin: coin)
+        self.coinImageUseCase = CoinImageUseCaseFactory.makeCoinImageUseCase(coinModel: coin)
         addSubscribers()
         isLoading = true
     }
     
     private func addSubscribers() {
-        dataService.$image
+        coinImageUseCase.imageDataPublisher
             .sink { [weak self] _ in
                 self?.isLoading = false
-            } receiveValue: { [weak self] image in
-                self?.image = image
+            } receiveValue: { [weak self] data in
+                self?.imageData = data
             }
             .store(in: &cancellables)
     }

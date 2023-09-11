@@ -8,14 +8,18 @@
 import Foundation
 import CoreData
 
-class PortfolioDataService {
+protocol PortfolioLocalDataRepositoryProtocol {
+    var savedEntitiesPublisher: Published<[PortfolioEntity]>.Publisher { get }
+}
+
+class PortfolioLocalDataRepository: PortfolioLocalDataRepositoryProtocol {
     
     private let container: NSPersistentContainer
     private let containerName: String = "PortfolioContainer"
     private let entityName: String = "PortfolioEntity"
     
     @Published var savedEntities: [PortfolioEntity] = []
-    
+    internal var savedEntitiesPublisher: Published<[PortfolioEntity]>.Publisher { $savedEntities }
     
     init() {
         container = NSPersistentContainer(name: containerName)

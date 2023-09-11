@@ -18,7 +18,7 @@ class HomeViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var sortOption: SortOption = .holdings
 
-    private let portfolioDataService = PortfolioDataService()
+    private let portfolioDataService = PortfolioLocalDataRepository()
     private let homeUseCase: HomeUseCaseProtocol
     private var cancellables = Set<AnyCancellable>()
     
