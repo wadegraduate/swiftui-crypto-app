@@ -29,6 +29,10 @@ class HomeUseCase: HomeUseCaseProtocol {
     }
     
     func getCoinsInfo() -> AnyPublisher<[CoinModel], HTTPError> {
+        let mockCoins = [DeveloperPreview.instance.bitcoin, DeveloperPreview.instance.eth]
+//        return Just(mockCoins)
+//                    .setFailureType(to: HTTPError.self)
+//                    .eraseToAnyPublisher()
         return coinDataNetworkService.requestCoinsInfo()
     }
     

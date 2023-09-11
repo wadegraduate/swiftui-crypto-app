@@ -56,7 +56,7 @@ struct HomeView: View {
                 label: { EmptyView() })
             
         )
-        .onAppear {
+        .task {
             viewModel.requestData()
         }
     }
@@ -104,7 +104,7 @@ extension HomeView {
     
     private var allCoinList: some View {
         List {
-            ForEach(viewModel.filterCoins) { coin in
+            ForEach(viewModel.allCoins) { coin in
                 CoinRowView(coin: coin, showHoldingColumn: false)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
                     .onTapGesture {

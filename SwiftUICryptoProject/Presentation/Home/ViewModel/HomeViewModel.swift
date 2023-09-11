@@ -8,16 +8,16 @@ import Foundation
 import Combine
 
 class HomeViewModel: ObservableObject {
-
+    
     @Published var statistic: [StatisticModel] = []
     @Published var marketData: MarketDataModel?
-    @Published var filterCoins: [CoinModel] = []
+    @Published var displayedCoins: [CoinModel] = []
     @Published var allCoins: [CoinModel] = []
     @Published var portfolioCoins: [CoinModel] = []
     @Published var searchText: String = ""
     @Published var isLoading: Bool = false
     @Published var sortOption: SortOption = .holdings
-
+    
     private let portfolioDataService = PortfolioLocalDataRepository()
     private let homeUseCase: HomeUseCaseProtocol
     private var cancellables = Set<AnyCancellable>()
@@ -32,13 +32,12 @@ class HomeViewModel: ObservableObject {
     }
     
     func addSubscribers() {
-        // update coins
         $searchText
             .combineLatest($allCoins, $sortOption)
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .map(filterAndSortCoin)
             .sink { [weak self] coins in
-                self?.filterCoins = coins
+                self?.displayedCoins = coins
             }
             .store(in: &cancellables)
         
@@ -48,7 +47,6 @@ class HomeViewModel: ObservableObject {
             .sink { [weak self] returnedCoins in
                 guard let self = self else { return }
                 self.portfolioCoins = self.sortPortfolioCoinsIfNeeded(coins: returnedCoins)
-                
             }
             .store(in: &cancellables)
         
@@ -62,6 +60,7 @@ class HomeViewModel: ObservableObject {
                 self?.isLoading = false
             }
             .store(in: &cancellables)
+        
     }
     
     func updatePortfolio(coin: CoinModel, amount: Double) {
@@ -74,6 +73,7 @@ class HomeViewModel: ObservableObject {
 extension HomeViewModel {
     func requestData() {
         isLoading = true
+        
         homeUseCase.getCoinsInfo()
             .sink { [weak self] result in
                 switch result {

@@ -23,7 +23,7 @@ struct SwiftUICryptoProjectApp: App {
             
             ZStack {
                 NavigationView{
-                    HomeView(viewModel: HomeFactory.makeHomeViewModel())
+                    HomeView(viewModel: viewModel)
                         .navigationBarHidden(true)
                 }
                 .navigationViewStyle(StackNavigationViewStyle())
