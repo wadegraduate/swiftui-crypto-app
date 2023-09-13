@@ -19,7 +19,7 @@ The project follows
 - ``Test doubles: Use of Stubs, Spys and Mocks``
 - ``Folder separation: Domain, Data, Presentation and Utilities``
 
-### Disclaimer:
+## Disclaimer:
 
-### References: 
+## References: 
 
