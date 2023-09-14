@@ -1,7 +1,11 @@
 # SwiftUI + MVVM + Clean Architecture + Unit Tests + Crypto Application
 
 
-## Overview
+## Background
+
+## Problems
+
+## Solutions
 
 The project follows
 
