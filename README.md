@@ -23,3 +23,6 @@ The project follows
 
 ## References: 
 
+[Building Scalable iOS Apps with Clean Architecture and MVVM (Part 1)]Building Scalable iOS Apps with Clean Architecture and MVVM (Part 1)
+
+[Building Scalable iOS Apps with Clean Architecture and MVVM (Part 2)]Building Scalable iOS Apps with Clean Architecture and MVVM (Part 2)
