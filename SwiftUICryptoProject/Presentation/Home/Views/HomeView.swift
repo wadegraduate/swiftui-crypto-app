@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @ObservedObject var viewModel: HomeViewModel
+    @StateObject var viewModel: HomeViewModel
     @State private var showPortfolio: Bool = false
     @State private var showPortfolioView: Bool = false // new sheet
     
@@ -104,7 +104,7 @@ extension HomeView {
     
     private var allCoinList: some View {
         List {
-            ForEach(viewModel.allCoins) { coin in
+            ForEach(viewModel.displayedCoins) { coin in
                 CoinRowView(coin: coin, showHoldingColumn: false)
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
                     .onTapGesture {

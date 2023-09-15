@@ -14,7 +14,7 @@ struct DetailLoadingView: View {
     var body: some View {
         ZStack {
             if let coin = coin {
-                DetailView(coin: coin)
+                DetailView(viewModel: DetailViewModel(coin: coin))
             }
         }
     }
@@ -56,15 +56,15 @@ struct DetailView: View {
         }
     }
     
-    init(coin: CoinModel) {
-        _viewModel = StateObject(wrappedValue: DetailViewModel(coin: coin))
+    init(viewModel: DetailViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            DetailView(coin: dev.bitcoin)
+            DetailView(viewModel: DetailViewModel(coin: dev.bitcoin))
         }
     }
 }
