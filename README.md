@@ -13,6 +13,41 @@ This repository is dedicated to my journey of learning Swift UI and sharing insi
 1. Dependency injection and the separation of layers are crucial principles for achieving a clear separation of concerns in software development. By organizing different layers, such as use cases, repositories, and network services, we can keep our codebase modular, facilitate testing, and enhance maintainability. These well-defined dependencies establish a structured flow of data and actions, bridging the gap between user interfaces and backend APIs or local data storage.
 
 2. Regarding the network layer, I've introduced several protocols: HTTPRequestable, HTTPReply, and HTTPParam. These abstractions are designed to streamline the handling of network requests, minimizing boilerplate code and providing a structured approach to attributes like URLs, HTTP methods, responses, and parameters. This organization not only reduces redundancy but also enhances traceability within the codebase.
+```swift
+public protocol HTTPRequestable {
+    associatedtype ParamT: HTTPParam
+    associatedtype ReplyT: HTTPReply
+    
+    var method: HTTPMethod { get }
+    var url: HTTPURL { get }
+    var param: ParamT { get }
+    var customHeaders: [HTTPHeaderField: String] { get }
+    var requestTimeOut: Float? { get }
+}
+
+public enum HTTPMethod: String {
+    case GET
+    case POST
+    case PUT
+    case DELETE
+}
+
+// MARK: - Default implementation
+extension HTTPRequestable {
+    public var customHeaders: [HTTPHeaderField: String] { [:] }
+}
+```
+A request example
+```swift
+struct MarketDataRequest: HTTPRequestable {
+    typealias ParamT = HTTPEmptyParam
+    typealias ReplyT = GlobalData
+    
+    var method: HTTPMethod = .GET
+    var url: HTTPURL = "https://api.coingecko.com/api/v3/global"
+    var requestTimeOut: Float? = nil
+}
+```
 
 The project follows
 
@@ -29,6 +64,8 @@ The project follows
 - ``Unit tests``
 - ``Test doubles: Use of Stubs, Spys and Mocks``
 - ``Folder separation: Domain, Data, Presentation and Utilities``
+
+## App screenshot:
 
 ## Disclaimer:
 
