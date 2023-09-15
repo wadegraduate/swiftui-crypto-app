@@ -66,6 +66,7 @@ The project follows
 - ``Folder separation: Domain, Data, Presentation and Utilities``
 
 ## App screenshot:
+<img src="https://github.com/wadegraduate/swiftui-crypto-app/blob/main/SwiftUICryptoProject/Assets.xcassets/Images/app_screen_shot.imageset/simulator_screenshot_B2111A4C-8BD9-4431-88A6-6D23C60EB06E.png?raw=true" width="385px" align="center"> <img src="https://github.com/wadegraduate/swiftui-crypto-app/blob/main/SwiftUICryptoProject/Assets.xcassets/Images/app_screen_shot_2.imageset/simulator_screenshot_4800EF54-6A05-4BCB-A13A-E36F89A28F7C.png" width="385px" align="center">
 
 ## Disclaimer:
 
