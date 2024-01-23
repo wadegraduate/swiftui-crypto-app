@@ -26,7 +26,7 @@ class HomeViewModel: ObservableObject {
         case rank, rankReversed, holdings, holdingsReversed, price, priceReversed
     }
     
-    init(homeUseCase: HomeUseCaseProtocol) {
+    init(homeUseCase: HomeUseCaseProtocol = HomeUseCase()) {
         self.homeUseCase = homeUseCase
         addSubscribers()
     }
