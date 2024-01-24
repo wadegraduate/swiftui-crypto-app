@@ -9,10 +9,14 @@ import Foundation
 import SwiftUI
 
 extension Color {
-    
     static let theme = ColorTheme()
+    static let textColor = TextColor()
     static let launch = LaunchTheme()
-    
+}
+
+struct TextColor {
+    let neutralSolidWhite = Color("TextColorWhite")
+    let neutralSolid400: Color = Color(red: 0.7, green: 0.7, blue: 0.7)
 }
 
 struct ColorTheme {
