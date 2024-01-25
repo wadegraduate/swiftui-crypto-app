@@ -20,24 +20,23 @@ struct SwiftUICryptoProjectApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView()
-            
-//            ZStack {
-//                NavigationView{
-//                    HomeView(viewModel: viewModel)
-//                        .navigationBarHidden(true)
-//                }
-//                .navigationViewStyle(StackNavigationViewStyle())
-//                
-//                
-//                ZStack {
-//                    if showLaunchView {
-//                        LaunchView(showLaunchView: $showLaunchView)
-//                            .transition(.move(edge: .leading))
-//                    }
-//                }
-//                .zIndex(2.0)
-        //    }
+            ZStack {
+                NavigationView{
+                    MainView()
+                        .navigationBarHidden(true)
+                }
+                .navigationViewStyle(StackNavigationViewStyle())
+                
+                
+                ZStack {
+                    if showLaunchView {
+                        LaunchView(showLaunchView: $showLaunchView)
+                            .transition(.move(edge: .leading))
+                    }
+                }
+                .zIndex(2.0)
+            }
+            .environment(\.colorScheme, .dark)
         }
     }
 }

@@ -20,7 +20,7 @@ struct ProfileHeaderView: View {
                     .mediumFont(size: 14)
                 Text("1oguzunal@gmail.com")
                     .mediumFont(size: 10)
-                    .foregroundStyle(Color.textColor.neutralSolid400)
+                    .foregroundStyle(Color.theme.neutralSolid400)
             }
             Image("img_chevron_down")
                 .frame(width: 24, height: 24)

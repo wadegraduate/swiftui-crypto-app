@@ -20,7 +20,7 @@ struct ProfileView: View {
                     ForEach(profileGroups) { group in
                         Section(header: Text(group.groupName)
                             .boldFont(size: 18)
-                            .foregroundStyle(Color.textColor.neutralSolidWhite)
+                            .foregroundStyle(Color.theme.neutralSolidWhite)
                             .padding(EdgeInsets(top: 0, leading: 15, bottom: 30, trailing: 0))
                         ) {
                             ForEach(group.rows) { row in
