@@ -110,9 +110,10 @@ extension HomeView {
                     .onTapGesture {
                         segue(coin: coin)
                     }
+                    .listRowBackground(Color.clear)
             }
         }
-        .listStyle(PlainListStyle())
+        .listStyle(.plain)
     }
     
     private var portfoiloCoinsList: some View {
@@ -122,7 +123,7 @@ extension HomeView {
                     .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
             }
         }
-        .listStyle(PlainListStyle())
+        .listStyle(.plain)
     }
     
     private var columnTitle: some View {

@@ -19,4 +19,12 @@ extension Text {
             Font.custom("Poppins-Bold", size: size)
         )
     }
+    
+    func heavyFont(size: CGFloat) -> some View {
+        return self.font(
+            Font.custom("Poppins-ExtraBold", size: size)
+        )
+    }
 }
+
+
