@@ -12,12 +12,20 @@ struct TradingMainView: View {
         NavigationStack {
             VStack {
                 TradingHeaderView()
+                Spacer(minLength: 40)
+                TradingTopMovers()
+                Spacer()
             }
-            .navigationTitle("Trading")
-           
-        
+            .safeAreaInset(edge: .top) {
+                HStack {
+                    Text("Trading")
+                        .boldFont(size: 32)
+                        .padding(.horizontal)
+                    Spacer()
+                }
+            }
         }
-      }
+    }
 }
 
 #Preview {

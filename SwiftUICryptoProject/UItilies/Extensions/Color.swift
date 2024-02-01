@@ -24,7 +24,7 @@ struct ColorTheme {
     
     let primaryRed = Color(red: 1, green: 0, blue: 0)
     let primaryGreen = Color(red: 0.33, green: 1, blue: 0.4)
-    let primaryBlue = Color(red: 0.33, green: 0.52, blue: 1)
+    let primaryBlue = Color(#colorLiteral(red: 0.3294117647, green: 0.5176470588, blue: 1, alpha: 1))
     let neutralSolidWhite = Color("TextColorWhite")
     let neutralSolidBlack = Color(.black)
     let neutralSolid400: Color = Color(red: 0.7, green: 0.7, blue: 0.7)
