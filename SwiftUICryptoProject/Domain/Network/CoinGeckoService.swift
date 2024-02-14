@@ -13,6 +13,7 @@ public protocol NetworkSerivceable {
 }
 
 struct CoinGeckoService: NetworkSerivceable, HTTPURL {
+    var urlString: String = ""
     let scheme = "https"
     let host = "api.coingecko.com"
     
@@ -24,15 +25,4 @@ struct CoinGeckoService: NetworkSerivceable, HTTPURL {
         components.queryItems = queryItems
         return components.url
     }
-    
-    var urlString: String {
-        var components = URLComponents()
-        components.scheme = scheme
-        components.host = host
-        components.path = path
-        components.queryItems = queryItems
-        return components.url?.absoluteString
-    }
-    
-    in
 }

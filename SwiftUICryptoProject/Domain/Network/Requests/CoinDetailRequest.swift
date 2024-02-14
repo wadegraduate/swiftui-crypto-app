@@ -22,3 +22,11 @@ struct CoinDetailRequest: HTTPRequestable {
         self.coinID = coinID
     }
 }
+
+extension CoinDetailRequest {
+    struct Param: Codable, HTTPJsonParam {
+        var coinID: String
+        
+    }
+}
+ 

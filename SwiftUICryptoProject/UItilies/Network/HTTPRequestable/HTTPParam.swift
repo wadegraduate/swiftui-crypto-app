@@ -30,6 +30,8 @@ import Foundation
 /// ```
 public protocol HTTPParam: Encodable {
     func encodeToJson() throws -> [String: Any]
+    func encodeToData() throws -> Data
+    func convertToQueryItems() throws -> [URLQueryItem]
 }
 
 // MARK: - JSON
@@ -61,5 +63,24 @@ public extension HTTPJsonParam {
         }
         
         return paramJsonDict
+    }
+    
+    func encodeToData() throws -> Data {
+        let paramData = try JSONEncoder().encode(self)
+        let paramJson = try JSONSerialization.jsonObject(with: paramData)
+        
+        guard let paramJsonDict = paramJson as? [String: Any] else {
+            assertionFailure()
+            throw HTTPError(code: .invalidParam)
+        }
+        return try JSONSerialization.data(withJSONObject: paramJsonDict, options: [])
+    }
+    
+    func convertToQueryItems() throws -> [URLQueryItem] {
+        return try self.encodeToJson().map { key, value in
+            // Convert value to String here. You might need to handle specific types differently.
+            let valueString = "\(value)"
+            return URLQueryItem(name: key, value: valueString)
+        }
     }
 }

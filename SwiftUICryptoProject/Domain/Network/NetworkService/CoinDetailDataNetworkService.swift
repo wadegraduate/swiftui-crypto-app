@@ -19,5 +19,3 @@ class CoinDetailDataNetworkService: CoinDetailDataNetworkServiceProtocol {
         return request.start()
     }
 }
-
-

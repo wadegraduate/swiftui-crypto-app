@@ -29,7 +29,6 @@ struct TradingTopMovers: View {
 
 struct TradingCoinRow: View {
     
-    
     var image: String? = nil
     var rightImage: String? = nil
     var name: String? = nil

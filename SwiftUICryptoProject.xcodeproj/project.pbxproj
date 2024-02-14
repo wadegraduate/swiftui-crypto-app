@@ -62,6 +62,7 @@
 		028065932AA8C9D6009DE96F /* JsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280658A2AA8C9D6009DE96F /* JsonRequest.swift */; };
 		028398BA2B7D445A00DAA02A /* CoinGeckoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028398B92B7D445A00DAA02A /* CoinGeckoService.swift */; };
 		028398C22B7D538C00DAA02A /* SwiftUICryptoProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028398C12B7D538C00DAA02A /* SwiftUICryptoProjectTests.swift */; };
+		028398CB2B7D674D00DAA02A /* CoinDetailDataNetworkServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028398CA2B7D674D00DAA02A /* CoinDetailDataNetworkServiceTest.swift */; };
 		02BE02282A92F7ED009DEA1D /* CoinImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BE02272A92F7ED009DEA1D /* CoinImageView.swift */; };
 		02BE022D2A9962AD009DEA1D /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BE022C2A9962AD009DEA1D /* LocalFileManager.swift */; };
 		02BE02312A997493009DEA1D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BE02302A997493009DEA1D /* SearchBarView.swift */; };
@@ -171,6 +172,7 @@
 		028398B92B7D445A00DAA02A /* CoinGeckoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGeckoService.swift; sourceTree = "<group>"; };
 		028398BF2B7D538C00DAA02A /* SwiftUICryptoProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUICryptoProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		028398C12B7D538C00DAA02A /* SwiftUICryptoProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICryptoProjectTests.swift; sourceTree = "<group>"; };
+		028398CA2B7D674D00DAA02A /* CoinDetailDataNetworkServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailDataNetworkServiceTest.swift; sourceTree = "<group>"; };
 		02BE02272A92F7ED009DEA1D /* CoinImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageView.swift; sourceTree = "<group>"; };
 		02BE022C2A9962AD009DEA1D /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		02BE02302A997493009DEA1D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				028398C12B7D538C00DAA02A /* SwiftUICryptoProjectTests.swift */,
+				028398CA2B7D674D00DAA02A /* CoinDetailDataNetworkServiceTest.swift */,
 			);
 			path = SwiftUICryptoProjectTests;
 			sourceTree = "<group>";
@@ -803,6 +806,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028398CB2B7D674D00DAA02A /* CoinDetailDataNetworkServiceTest.swift in Sources */,
 				028398C22B7D538C00DAA02A /* SwiftUICryptoProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
