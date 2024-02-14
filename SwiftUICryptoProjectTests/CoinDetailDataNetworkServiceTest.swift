@@ -54,7 +54,6 @@ final class CoinDetailDataNetworkServiceTest: XCTestCase {
                     XCTAssertNotNil(data)
                     expectation.fulfill()
                 case .failure(let error):
-                    XCTAssertNotNil(error)
                     expectation.fulfill()
                 }
             }

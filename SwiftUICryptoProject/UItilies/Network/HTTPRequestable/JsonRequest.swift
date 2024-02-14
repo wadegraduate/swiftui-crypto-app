@@ -18,15 +18,14 @@ public class JsonRequest<RequestT: HTTPRequestable> {
         let sessionConfig = URLSessionConfiguration.default
         sessionConfig.timeoutIntervalForRequest = TimeInterval(requestable.requestTimeOut ?? 20.0)
         // We use the dataTaskPublisher from the URLSession which gives us a publisher to play around with.
-        guard let url = URL(string: requestable.url.urlString) else {
-            // Return a fail publisher if the url is invalid
+        guard let url = URL(string: requestable.url.urlString), let urlRequest = createURLRequest(url: url) else {
             return AnyPublisher(
                 Fail<RequestT.ReplyT, HTTPError>(error: HTTPError(code: .invaildURL))
             )
         }
         
         return URLSession.shared
-            .dataTaskPublisher(for: createURLRequest(url: url))
+            .dataTaskPublisher(for: urlRequest)
             .tryMap() { element -> Data in
                 guard let httpResponse = element.response as? HTTPURLResponse,
                       httpResponse.statusCode == 200 else {
@@ -44,16 +43,40 @@ public class JsonRequest<RequestT: HTTPRequestable> {
             .eraseToAnyPublisher()
     }
     
-    func createURLRequest(url: URL) -> URLRequest {
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = requestable.method.rawValue
+    func createURLRequest(url: URL) -> URLRequest? {
+        var components = URLComponents(string: url.absoluteString)
+        
+        if requestable.method == .GET {
+            do {
+                components?.queryItems = try requestable.param.convertToQueryItems()
+            } catch {
+                print("Error")
+            }
+        }
+        guard let url = components?.url else { return nil }
+        var request = URLRequest(url: url)
+        request.httpMethod = requestable.method.rawValue
+        
         if !requestable.customHeaders.isEmpty {
             let customHeaders: [String: String] = .init(uniqueKeysWithValues: requestable.customHeaders.map {
                 ($0.key.rawValue, $0.value)
             })
-            urlRequest.allHTTPHeaderFields = customHeaders
+            request.allHTTPHeaderFields = customHeaders
         }
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        return urlRequest
+        
+        if requestable.method == .POST {
+            do {
+                request.httpBody =  try requestable.param.encodeToData()
+            } catch {
+                print("Error")
+            }
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
+        
+        if let timeout = requestable.requestTimeOut {
+            request.timeoutInterval = TimeInterval(timeout)
+        }
+
+        return request
     }
 }

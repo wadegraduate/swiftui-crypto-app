@@ -68,4 +68,3 @@ extension HTTPRequestable {
         return JsonRequest(self)
     }
 }
-
