@@ -46,7 +46,9 @@ class CoinImageRepository: CoinImageRepositoryProtocol {
                 switch result {
                 case .success(let data):
                     self.imageData = data
-                    self.fileManager.saveImageData(imageData: data, imageName: imageName, folderName: self.folderName)
+                    self.fileManager.saveImageData(imageData: data, 
+                                                   imageName: imageName,
+                                                   folderName: self.folderName)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

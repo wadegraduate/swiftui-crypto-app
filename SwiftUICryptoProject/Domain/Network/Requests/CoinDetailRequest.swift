@@ -15,7 +15,7 @@ struct CoinDetailRequest: HTTPRequestable {
     var url: HTTPURL {
         return "https://api.coingecko.com/api/v3/coins/\(coinID)?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false"
     }
-    var requestTimeOut: Float? = nil
+    var requestTimeOut: Float?
     let coinID: String
     
     init(coinID: String) {

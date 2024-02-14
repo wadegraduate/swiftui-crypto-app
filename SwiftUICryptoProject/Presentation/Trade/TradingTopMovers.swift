@@ -47,7 +47,7 @@ struct TradingCoinRow: View {
             content: {
                 if isExpanded {
                     TradingChartView()
-                    ButtonBox()
+                    ButtonBox(primaryTitle: "Buy", secondTitle: "Sell")
                 }
             },
             label: {
@@ -81,7 +81,7 @@ struct TradingCoinRow: View {
                             EmptyView()
                         }
                     }
-                    
+
                     VStack(alignment: .leading)  {
                         Text("Ethereum")
                             .mediumFont(size: 18)
@@ -98,7 +98,7 @@ struct TradingCoinRow: View {
                         Text("$1.64%")
                             .mediumFont(size: 12)
                             .foregroundStyle(Color.theme.red)
-                            .alignmentGuide(.leading) { d in d[.leading]}
+                            .alignmentGuide(.leading) { distance in distance[.leading]}
                     }
                     
                     Image("img_chevron_down")

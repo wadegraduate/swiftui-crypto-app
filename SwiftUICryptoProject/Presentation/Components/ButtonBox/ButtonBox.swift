@@ -8,28 +8,23 @@
 import SwiftUI
 
 struct ButtonBox: View {
-    
+    let primaryTitle: String
+    let secondTitle: String
+  
+    var onPrimaryButtonClick: (() -> Void)? = nil
+    var onSecondaryButtonClick: (() -> Void)? = nil
+        
     var body: some View {
         HStack(alignment: .top, spacing: 24) {
             Button(action: {
-                // Your button action here
-                print("Button tapped!")
+                onPrimaryButtonClick?()
             }) {
                 Text("Tap Me")
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(100)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 100)
-                            .stroke(Color.blue, lineWidth: 2)
-                    )
             }
+            .buttonStyle(PrimaryButtonStyle())
             
             Button(action: {
-                // Your button action here
-                print("Button tapped!")
+                onSecondaryButtonClick?()
             }) {
                 Text("Tap Me")
                     .foregroundColor(.white)
@@ -47,5 +42,5 @@ struct ButtonBox: View {
 }
 
 #Preview {
-    ButtonBox()
+    ButtonBox(primaryTitle: "Primary", secondTitle: "Secondary")
 }

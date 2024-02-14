@@ -13,5 +13,5 @@ struct MarketDataRequest: HTTPRequestable {
     
     var method: HTTPMethod = .GET
     var url: HTTPURL = "https://api.coingecko.com/api/v3/global"
-    var requestTimeOut: Float? = nil
+    var requestTimeOut: Float?
 }

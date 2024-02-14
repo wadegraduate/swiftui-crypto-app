@@ -39,6 +39,7 @@
 		023ECA1D2B5B05EA002F8BF1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023ECA1C2B5B05EA002F8BF1 /* ProfileView.swift */; };
 		024CA5542B689980008F4D38 /* TradingChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024CA5532B689980008F4D38 /* TradingChartView.swift */; };
 		024CA5572B689D4D008F4D38 /* ButtonBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024CA5562B689D4D008F4D38 /* ButtonBox.swift */; };
+		024CB07B2B6C0816008F4D38 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024CB07A2B6C0816008F4D38 /* PrimaryButtonStyle.swift */; };
 		025633302AAA6E74002DD25F /* CoinDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256332F2AAA6E74002DD25F /* CoinDetailUseCase.swift */; };
 		025633352AAB8ADE002DD25F /* CoinImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025633342AAB8ADE002DD25F /* CoinImageUseCase.swift */; };
 		025633372AAB8BD6002DD25F /* CoinImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025633362AAB8BD6002DD25F /* CoinImageRepository.swift */; };
@@ -59,6 +60,8 @@
 		028065912AA8C9D6009DE96F /* HTTPParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028065882AA8C9D6009DE96F /* HTTPParam.swift */; };
 		028065922AA8C9D6009DE96F /* HTTPURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028065892AA8C9D6009DE96F /* HTTPURL.swift */; };
 		028065932AA8C9D6009DE96F /* JsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280658A2AA8C9D6009DE96F /* JsonRequest.swift */; };
+		028398BA2B7D445A00DAA02A /* CoinGeckoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028398B92B7D445A00DAA02A /* CoinGeckoService.swift */; };
+		028398C22B7D538C00DAA02A /* SwiftUICryptoProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028398C12B7D538C00DAA02A /* SwiftUICryptoProjectTests.swift */; };
 		02BE02282A92F7ED009DEA1D /* CoinImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BE02272A92F7ED009DEA1D /* CoinImageView.swift */; };
 		02BE022D2A9962AD009DEA1D /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BE022C2A9962AD009DEA1D /* LocalFileManager.swift */; };
 		02BE02312A997493009DEA1D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BE02302A997493009DEA1D /* SearchBarView.swift */; };
@@ -100,6 +103,16 @@
 		02F40B3F2B68570100A77B8C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F40B3E2B68570100A77B8C /* Image.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		028398C32B7D538C00DAA02A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02EF97AD287DC5F90005C66A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02EF97B4287DC5F90005C66A;
+			remoteInfo = SwiftUICryptoProject;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		02117E692AA9722700A8A84D /* Publisher+Additionals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Additionals.swift"; sourceTree = "<group>"; };
 		02117E6B2AA9752F00A8A84D /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
@@ -134,6 +147,7 @@
 		023ECA1C2B5B05EA002F8BF1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		024CA5532B689980008F4D38 /* TradingChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingChartView.swift; sourceTree = "<group>"; };
 		024CA5562B689D4D008F4D38 /* ButtonBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBox.swift; sourceTree = "<group>"; };
+		024CB07A2B6C0816008F4D38 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
 		0256332F2AAA6E74002DD25F /* CoinDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailUseCase.swift; sourceTree = "<group>"; };
 		025633342AAB8ADE002DD25F /* CoinImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageUseCase.swift; sourceTree = "<group>"; };
 		025633362AAB8BD6002DD25F /* CoinImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageRepository.swift; sourceTree = "<group>"; };
@@ -154,6 +168,9 @@
 		028065882AA8C9D6009DE96F /* HTTPParam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPParam.swift; sourceTree = "<group>"; };
 		028065892AA8C9D6009DE96F /* HTTPURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPURL.swift; sourceTree = "<group>"; };
 		0280658A2AA8C9D6009DE96F /* JsonRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonRequest.swift; sourceTree = "<group>"; };
+		028398B92B7D445A00DAA02A /* CoinGeckoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGeckoService.swift; sourceTree = "<group>"; };
+		028398BF2B7D538C00DAA02A /* SwiftUICryptoProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUICryptoProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		028398C12B7D538C00DAA02A /* SwiftUICryptoProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICryptoProjectTests.swift; sourceTree = "<group>"; };
 		02BE02272A92F7ED009DEA1D /* CoinImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageView.swift; sourceTree = "<group>"; };
 		02BE022C2A9962AD009DEA1D /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		02BE02302A997493009DEA1D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
@@ -197,6 +214,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		028398BC2B7D538C00DAA02A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02EF97B2287DC5F90005C66A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -314,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				024CA5562B689D4D008F4D38 /* ButtonBox.swift */,
+				024CB07A2B6C0816008F4D38 /* PrimaryButtonStyle.swift */,
 			);
 			path = ButtonBox;
 			sourceTree = "<group>";
@@ -469,6 +494,14 @@
 			path = HTTPRequestable;
 			sourceTree = "<group>";
 		};
+		028398C02B7D538C00DAA02A /* SwiftUICryptoProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				028398C12B7D538C00DAA02A /* SwiftUICryptoProjectTests.swift */,
+			);
+			path = SwiftUICryptoProjectTests;
+			sourceTree = "<group>";
+		};
 		02BE02262A92F7CF009DEA1D /* CoinImageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,6 +562,7 @@
 			isa = PBXGroup;
 			children = (
 				02EF97B7287DC5F90005C66A /* SwiftUICryptoProject */,
+				028398C02B7D538C00DAA02A /* SwiftUICryptoProjectTests */,
 				02EF97B6287DC5F90005C66A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -537,6 +571,7 @@
 			isa = PBXGroup;
 			children = (
 				02EF97B5287DC5F90005C66A /* SwiftUICryptoProject.app */,
+				028398BF2B7D538C00DAA02A /* SwiftUICryptoProjectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -622,6 +657,7 @@
 			children = (
 				025633422AABBC11002DD25F /* NetworkService */,
 				025633412AABBBFE002DD25F /* Requests */,
+				028398B92B7D445A00DAA02A /* CoinGeckoService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -629,6 +665,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		028398BE2B7D538C00DAA02A /* SwiftUICryptoProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 028398C72B7D538C00DAA02A /* Build configuration list for PBXNativeTarget "SwiftUICryptoProjectTests" */;
+			buildPhases = (
+				028398BB2B7D538C00DAA02A /* Sources */,
+				028398BC2B7D538C00DAA02A /* Frameworks */,
+				028398BD2B7D538C00DAA02A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				028398C42B7D538C00DAA02A /* PBXTargetDependency */,
+			);
+			name = SwiftUICryptoProjectTests;
+			productName = SwiftUICryptoProjectTests;
+			productReference = 028398BF2B7D538C00DAA02A /* SwiftUICryptoProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		02EF97B4287DC5F90005C66A /* SwiftUICryptoProject */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02EF97C3287DC5FA0005C66A /* Build configuration list for PBXNativeTarget "SwiftUICryptoProject" */;
@@ -636,6 +690,7 @@
 				02EF97B1287DC5F90005C66A /* Sources */,
 				02EF97B2287DC5F90005C66A /* Frameworks */,
 				02EF97B3287DC5F90005C66A /* Resources */,
+				029CEE152B7BD50800F81547 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -653,9 +708,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					028398BE2B7D538C00DAA02A = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 02EF97B4287DC5F90005C66A;
+					};
 					02EF97B4287DC5F90005C66A = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -675,11 +734,19 @@
 			projectRoot = "";
 			targets = (
 				02EF97B4287DC5F90005C66A /* SwiftUICryptoProject */,
+				028398BE2B7D538C00DAA02A /* SwiftUICryptoProjectTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		028398BD2B7D538C00DAA02A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02EF97B3287DC5F90005C66A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -711,7 +778,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		029CEE152B7BD50800F81547 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		028398BB2B7D538C00DAA02A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				028398C22B7D538C00DAA02A /* SwiftUICryptoProjectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02EF97B1287DC5F90005C66A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -759,6 +854,7 @@
 				024CA5542B689980008F4D38 /* TradingChartView.swift in Sources */,
 				02F40B3D2B68180B00A77B8C /* TradingTopMovers.swift in Sources */,
 				0214B48A2B606609004A40CC /* ProfileHeaderView.swift in Sources */,
+				028398BA2B7D445A00DAA02A /* CoinGeckoService.swift in Sources */,
 				025633462AABBC2F002DD25F /* CoinDetailRequest.swift in Sources */,
 				02117E6A2AA9722700A8A84D /* Publisher+Additionals.swift in Sources */,
 				0256334A2AABBC3C002DD25F /* CoinDataRequest.swift in Sources */,
@@ -772,6 +868,7 @@
 				02F1AC2428B7C6E20032045F /* StatisticModel.swift in Sources */,
 				02F1AC1628B7C6DB0032045F /* String.swift in Sources */,
 				0214BFDE2B620AA3004A40CC /* MainTabBarItemView.swift in Sources */,
+				024CB07B2B6C0816008F4D38 /* PrimaryButtonStyle.swift in Sources */,
 				02F1AC1728B7C6DB0032045F /* Double.swift in Sources */,
 				02BE02462A9FBEBF009DEA1D /* DetailView.swift in Sources */,
 				02F1AC2528B7C6E20032045F /* CoinDetailModel.swift in Sources */,
@@ -790,7 +887,64 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		028398C42B7D538C00DAA02A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02EF97B4287DC5F90005C66A /* SwiftUICryptoProject */;
+			targetProxy = 028398C32B7D538C00DAA02A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		028398C52B7D538C00DAA02A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8ZPPH6YVK2;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wade.own.SwiftUICryptoProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUICryptoProject.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftUICryptoProject";
+			};
+			name = Debug;
+		};
+		028398C62B7D538C00DAA02A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8ZPPH6YVK2;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wade.own.SwiftUICryptoProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUICryptoProject.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftUICryptoProject";
+			};
+			name = Release;
+		};
 		02EF97C1287DC5FA0005C66A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -968,6 +1122,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		028398C72B7D538C00DAA02A /* Build configuration list for PBXNativeTarget "SwiftUICryptoProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				028398C52B7D538C00DAA02A /* Debug */,
+				028398C62B7D538C00DAA02A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		02EF97B0287DC5F90005C66A /* Build configuration list for PBXProject "SwiftUICryptoProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

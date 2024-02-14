@@ -50,7 +50,6 @@ class HomeViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
-        
         // updates markets data
         $marketData
             .combineLatest($portfolioCoins)
@@ -64,7 +63,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func updatePortfolio(coin: CoinModel, amount: Double) {
-        //change this to useCase
+        // change this to useCase
         portfolioDataService.updatePortfolio(coin: coin, amount: amount)
     }
 }
@@ -177,7 +176,9 @@ extension HomeViewModel {
         
         let precentageChange = ((portfolioValue - portfolioPreviousValue) / portfolioPreviousValue) * 100
         
-        let portfoilo = StatisticModel(title: "Portfolio", value: portfolioValue.asCurrencyWith2Decimals(), percentageChange: precentageChange)
+        let portfoilo = StatisticModel(title: "Portfolio",
+                                       value: portfolioValue.asCurrencyWith2Decimals(),
+                                       percentageChange: precentageChange)
         stats.append(contentsOf: [marketCap, volume, btcDomminance, portfoilo])
         return stats
     }

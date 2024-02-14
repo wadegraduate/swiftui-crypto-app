@@ -15,7 +15,7 @@ extension PreviewProvider {
     }
     
 }
-
+// swiftlint:disable all
 class DeveloperPreview {
     
     static let instance = DeveloperPreview()
@@ -427,4 +427,4 @@ class DeveloperPreview {
        priceChangePercentage24HInCurrency: 3952.64,
        currentHoldings: 1.5)
 }
-
+// swiftlint:enable all

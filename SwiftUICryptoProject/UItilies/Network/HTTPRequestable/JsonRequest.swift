@@ -44,7 +44,6 @@ public class JsonRequest<RequestT: HTTPRequestable> {
             .eraseToAnyPublisher()
     }
     
-    
     func createURLRequest(url: URL) -> URLRequest {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = requestable.method.rawValue
@@ -58,7 +57,3 @@ public class JsonRequest<RequestT: HTTPRequestable> {
         return urlRequest
     }
 }
-
-
-
-
